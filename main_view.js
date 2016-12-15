@@ -2,9 +2,7 @@
 
 /* main_view.js
  *
- * A starter code for am example composite application demonstrating: TextWidgets, ImageWidgets, 
- * VideoWidgets, JavaScriptWidgets, BookWidget, ItemsFlowWidget.
- * Also demonstrates creating a marker sensor widget and styling using CSS.
+ * This code uses Multitaction tables and the CornerStone
  * 
  * 
  * Solution is written by Jasmine Davis, August 2015
@@ -51,11 +49,7 @@ marker code 31: circle
 var root = $.app.mainLayer();
 
 var background = createBackground("images/background.png");
-//var delete_button = 
 clear();
-// delete_button.onSingleTap(function () { 
-// 	removeAll(); 
-// });
 
 root.addChild(background);
 console.log("******************background****************");
@@ -87,13 +81,13 @@ var shape_collection = {};
 
 var key_queue = []; 
 
-//
 var default_shape_size = 80;
 
-// fix rotation bt 90 degrees
+// fix rotation by 90 degrees
 var rotation_offset = 1.57;
 
 var max_shapes = 15;
+
 /*
 * Utility functions
 */
@@ -175,16 +169,18 @@ function getRelativeY(absolute_y) {
 }
 
 // creates a shape in the same position in every quadrant given an x, y, code, and rotation. Adds all these shapes to a hashmap
-//    indexed on the original x location to avoid bug where many of the same widget will spawn in the same location
+// indexed on the original x location to avoid bug where many of the same widget will spawn in the same location
 function placeAll(x, y, code, time, rotation){
-	//instantiate shape collection and place all shapes as image widgets
 
+	// check that a shape doesn't already exist in the same location. Intended to mitigate bug where many shapes would 
+	// spawn in almost the same location
 	if ((Math.round(x)-1 in shape_collection) || (Math.round(x)+1 in shape_collection) || (Math.round(x) in shape_collection)) {
 		console.log("already a shape in this location");
 		return;
 	}
 	// for hashmap
 	var key = Math.round(x);
+	
 	// array that will be populated with shape widgets
 	var all_shapes = [];
 
@@ -233,8 +229,6 @@ function createShape(x, y, sizeX, sizeY, rotation, code) {
 		break;
 	case 3: 
 		image_name = "icecream.png";
-	//	w.setWidth(sizeX*2);
-	// 	w.setHeight(sizeY*3);
 		break;		
 	case 4: 
 		image_name = "trapezoid.png";
@@ -313,7 +307,7 @@ function createShape(x, y, sizeX, sizeY, rotation, code) {
 	return w;
 }
 
-//remove widgets from the shape collection once number of shapes on screen has exceeded the max_shapes constant 
+// remove widgets from the shape collection once number of shapes on screen has exceeded the max_shapes constant 
 function removeShapes(){
 	//remove images widgets by iterating over shape_collection
 	if (key_queue.length > max_shapes) {		
@@ -325,6 +319,7 @@ function removeShapes(){
 	}
 }
 
+// Remove all shapes on the screen, helper function for clear()
 function removeAll() {
 	for (var key_to_remove in shape_collection) { 
 		for (i = 0; i < shape_collection[key_to_remove].length; i++) {
@@ -334,7 +329,7 @@ function removeAll() {
 	}
 }
 
-// clear all shapes from the board
+// clear all shapes from the board and create button to do so. THIS DID NOT WORK :(
 function clear() {
 	var w = new MultiWidgets.JavaScriptWidget();
 
@@ -398,6 +393,8 @@ function markerSensor() {
 			printTestText(marker);
 			placeAll(marker.centerLocation().x, marker.centerLocation().y, marker.code(), 0, marker.rotation());
 		}
+
+		// check if max shapes has been exceeded; if it has, remove some
 		if (key_queue.length > max_shapes) {
 			removeShapes();
 		}
