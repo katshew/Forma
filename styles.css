@@ -1,0 +1,114 @@
+TextWidget {
+  /*background-clip: padding-box, content-box;*/
+  background-size: auto, cover;
+  background-position: 0 0, top 90% left;
+  background-color: brown;
+  padding: 20px;
+  resize-to-content: true;
+
+  stroke-width: 2px;
+  stroke: brown;
+  font-family: "Times New Roman", sans-serif;
+  color: #f5f5dc;
+  wrap-mode: none;
+}
+/**[Pseudo state] */
+/*TextWidget:active {
+  opacity: 30%;
+}*/
+
+/**[Id1 properties]*/
+#ms {
+  border-color: red;
+  border-width: 3px;
+}
+
+#w1 {
+  background-color: #82ae74;
+  background-image: "Examples/200px-Truchet_tiling.png", "Examples/TulipStair_QueensHouse_Greenwich25.jpg";
+  text: "Hello";
+  color: #f38b36;
+  location: 70px 440px;
+  rotation: -0.3;
+  font-size: 150px;
+}
+/**[Id2 properties]*/
+#w2 {
+  background-color: red;
+  background-image: "Examples/ClemensXI20.jpg";
+  background-size: cover;
+  background-position: top 25%;
+  text: "World,";
+  color: #4577d4;
+  location: 500px 440px;
+  rotation: 0.2;
+  stroke-width: 1mm;
+  font-size: 100px;
+}
+/**[Id3 properties]*/
+#w3 {
+  background-image: none;
+  background-color: #4577d4;
+  text: "Hello";
+  color: #f38b36;
+  location: 900px 440px;
+  rotation: -0.1;
+  font-size: 100px;
+}
+/**[Id4 properties]*/
+#w4 {
+  background-image: "Examples/ClemensXI20.jpg";
+  background-repeat: space round;
+  background-size: 45px;
+  background-color: transparent;
+  origin: 0.5 0.5;
+  padding: 15px;
+  text: "CS320";
+  font-size: 100px;
+  color: #f38b36;
+  location: 1480px 440px;
+  rotation: 13deg;
+}
+#w5 {
+  background-image: "Examples/Bismuth_crystal_macro30.jpg";
+  background-size: 100% 50%;
+  background-repeat: repeat-y;
+  text: "!";
+  color: transparent;
+  origin: 0.5 0.5;
+  padding: 15px;
+  location: 1720px 480px;
+  rotation: 3deg;
+  font-size: 200px;
+  stroke-width: 5mm;
+}
+#w6 {
+  background-image: none;
+  background-clip: padding-box, content-box;
+  padding: 0px;
+}
+
+#vid1 {
+  background-image: none;
+  padding: 0px;
+  font-size: 10px;
+}
+
+/* styling for widgets */
+
+#image {
+  background-color: 1 1 1 0;
+}
+
+#video {
+  border: 7px blue;
+}
+
+#book {
+  border: 7px #A8C3BA;
+}
+
+
+
+
+

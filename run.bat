@@ -1,0 +1,1 @@
+@%~dp0\..\common.bat %~dp0main_view.js %*
