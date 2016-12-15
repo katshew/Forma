@@ -2,11 +2,10 @@
 
 /* main_view.js
  *
- * This code uses Multitaction tables and the CornerStone
+ * This code uses Multitaction tables and the CornerStone sdk to implement Forma
  * 
- * 
- * Solution is written by Jasmine Davis, August 2015
- * Updated by Orit Shaer, October 2015
+ * Written by Kat Shewchuk and Eva Stern-Rodriguez, with help from Kai Jordan
+ * Updated December 2016
  */
 
 
